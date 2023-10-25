@@ -48,7 +48,8 @@ export function AuthProvider({ children }: IAuthProvider) {
     try {
       const req = await api.get("/users");
       return req.data;
-    } catch {
+    } catch(err) {
+      console.log(err);
       throw new Error();
     }
   };
