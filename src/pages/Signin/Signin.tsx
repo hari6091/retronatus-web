@@ -12,9 +12,9 @@ function Signin() {
 
   const { signIn } = useAuth();
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     try {
-      signIn(email, password);
+      await signIn(email, password);
       navigate("/home");
     } catch (err) {
       setError("Algo deu errado!");
