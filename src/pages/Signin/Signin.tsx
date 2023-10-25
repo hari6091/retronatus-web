@@ -17,7 +17,7 @@ function Signin() {
       await signIn(email, password);
       navigate("/home");
     } catch (err) {
-      setError("Algo deu errado!");
+      setError("Usuário e/ou senha incorretos!");
     }
   };
 
