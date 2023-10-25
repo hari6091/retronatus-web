@@ -27,7 +27,7 @@ export function AuthProvider({ children }: IAuthProvider) {
       setUser(payload);
       setUserLocalStorage(payload);
     } catch {
-      alert("Usuário não encontrado.");
+      throw new Error();
     }
   };
 
