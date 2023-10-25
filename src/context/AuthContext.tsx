@@ -20,7 +20,7 @@ export function AuthProvider({ children }: IAuthProvider) {
 
   const signIn = async (email: string, password: string) => {
     try {
-      const req = await api.post("/Usuario/login", { email, password });
+      const req = await api.post("/login", { email, password });
 
       const payload = { token: req.data };
 
@@ -33,7 +33,7 @@ export function AuthProvider({ children }: IAuthProvider) {
 
   const signUp = async (name: string, email: string, password: string) => {
     try {
-      await api.post("/Usuario", { name, email, password });
+      await api.post("/users", { name, email, password });
     } catch {
       throw new Error();
     }
