@@ -27,7 +27,7 @@ export function AuthProvider({ children }: IAuthProvider) {
       setUser(payload);
       setUserLocalStorage(payload);
     } catch {
-      throw new Error();
+      alert("Usuário não encontrado.");
     }
   };
 
@@ -48,13 +48,15 @@ export function AuthProvider({ children }: IAuthProvider) {
     try {
       const req = await api.get("/users");
       return req.data;
-    } catch(err) {
-      console.log(err);
-      throw new Error();
+    } catch (err) {
+      alert("Algo deu errado ao buscar usuários.");
     }
   };
 
-  const auth = useMemo(() => ({ ...user, signIn, logout, signUp, getUsers }), [user]);
+  const auth = useMemo(
+    () => ({ ...user, signIn, logout, signUp, getUsers }),
+    [user]
+  );
 
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 }

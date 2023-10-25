@@ -26,9 +26,15 @@ function Home() {
     <Center h="100vh">
       <Stack w="30%" align="center">
         <Text size="32px">Retronatus - HOME</Text>
-        {users.map((user) => (
-          <Text>{user.email}</Text>
-        ))}
+        <Text size="24px">Usuários cadastrados no sistema:</Text>
+        <ul>
+          {users.map((user) => (
+            <li>
+              <Text>{user.email}</Text>
+            </li>
+          ))}
+        </ul>
+
         <Button
           onClick={() => {
             logout();

@@ -17,7 +17,6 @@ function Signin() {
       signIn(email, password);
       navigate("/home");
     } catch (err) {
-      console.log(err);
       setError("Algo deu errado!");
     }
   };
