@@ -20,7 +20,9 @@ services:
     container_name: backend
     ports:
       - 5000:5000
-    command: sh -c "sleep 5 && git pull origin main && npm i && npm run dev"
+    expose:
+      - 5000
+    command: sh -c "sleep 3 && git pull origin main && npm i && npm run dev"
     depends_on:
       - db
     networks:
@@ -31,7 +33,7 @@ services:
     container_name: frontend
     ports:
       - 3000:3000
-    command: sh -c "git pull origin main && npm i && npm start"
+    command: sh -c "sleep 3 && git pull origin main && npm i && npm start"
     depends_on:
       - backend
     networks:
