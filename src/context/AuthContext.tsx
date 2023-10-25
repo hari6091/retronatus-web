@@ -44,7 +44,16 @@ export function AuthProvider({ children }: IAuthProvider) {
     setUserLocalStorage(null);
   };
 
-  const auth = useMemo(() => ({ ...user, signIn, logout, signUp }), [user]);
+  const getUsers = async () => {
+    try {
+      const req = await api.get("/users");
+      return req.data;
+    } catch {
+      throw new Error();
+    }
+  };
+
+  const auth = useMemo(() => ({ ...user, signIn, logout, signUp, getUsers }), [user]);
 
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 }
