@@ -24,7 +24,7 @@ function Signin() {
   return (
     <Center h="100vh">
       <Stack w="30%" align="center">
-        <Text size="32px">Retronatus login</Text>
+        <Text size="32px">Faça seu login</Text>
         <Stack w="100%" gap="32px">
           <TextInput
             type="email"
